@@ -1,4 +1,5 @@
 import axiosBase from "./base";
+import Community from "../model/Community";
 const axios = axiosBase.axiosCreate("v1");
 
 const client = {
@@ -21,7 +22,17 @@ const client = {
   searchCommunity(q) {
     const url = '/communities/search';
     const query = {q: q};
-    return axiosBase.defaultGet(url, false, query)
+    const array = axiosBase.defaultGet(url, false, query);
+    if (array){
+      const communityList = [];
+      for (let data of array){
+        communityList.push(new Community(data))
+      }
+      return communityList;
+    }
+    else {
+      return null;
+    }
   },
 
   // コミュニティ一覧
@@ -80,3 +91,5 @@ const client = {
     return axiosBase.defaultPost(url, true, body)
   }
 };
+
+export default client;
