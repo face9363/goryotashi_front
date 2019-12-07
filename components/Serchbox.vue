@@ -1,23 +1,34 @@
 <template>
     <div class="serch-box">
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="community">
+            <input type="text" class="form-control" v-model="searchStr" placeholder="community">
             <!-- <SerchCommunity /> -->
         </div>
         <div class="goyotashi-message">
             の御用達を
         </div>
-        <button type="button" class="btn btn-default serch-botton">検索</button>
+        <button type="button" class="btn btn-default serch-botton" v-on:click="search(searchStr)" >検索</button>
     </div>
 </template>
 
 <script>
-import SerchCommunity from '~/components/SerchCommunity.vue'
+
+import searchCommunity from '../controller/SearchCommunity.js'
 export default {
-  components: {
-    SerchCommunity
-  }
+
+    methods: {
+        search(str){
+            console.log(str);
+            
+            searchCommunity(str);
+        }
+    },
+    data: {
+        searchStr: null
+    }
 }
+
+
 </script>
 
 <style scoped>

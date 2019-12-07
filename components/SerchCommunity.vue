@@ -9,9 +9,7 @@
 <script>
 import searchCommunity from '../controller/SearchCommunity.js'
 export default {
-    components: {
-        
-    },
+
     methods: {
         search(){
             searchCommunity();
