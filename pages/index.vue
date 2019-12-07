@@ -1,8 +1,9 @@
 <template>
   <div class="container">
-    <div>
       
-      <Serchbox />
+    <Serchbox />
+    <MyCommunity />
+    <HowToUse />
       <!-- <h2 class="subtitle">
         show community&#39;s restaurant
       </h2>
@@ -22,7 +23,6 @@
           GitHub
         </a>
       </div> -->
-    </div>
   </div>
 </template>
 
@@ -30,12 +30,16 @@
 import Logo from '~/components/Logo.vue'
 import Header from '~/components/Header.vue'
 import Serchbox from '~/components/Serchbox.vue'
+import MyCommunity from '~/components/Mycommunity.vue'
+import HowToUse from '~/components/HowToUse.vue'
 
 export default {
   components: {
     Logo,
     Header,
-    Serchbox
+    Serchbox,
+    MyCommunity,
+    HowToUse
   }
 }
 </script>
@@ -46,7 +50,7 @@ export default {
 } */
 
 .container {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   /* min-height: 100vh; */
   /* display: flex; */

@@ -20,6 +20,18 @@ html {
 
 .body{
   background-color: rgba(248,244,230);
+  height:1000px;
+}
+
+h2{
+  color:#f7b977;
+  border-bottom:solid #ced4da;
+  padding:10px 10px 5px 10px;
+  margin:20px;
+}
+
+p{
+  padding:0 1.5em;
 }
 
 *,

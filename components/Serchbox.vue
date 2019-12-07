@@ -16,21 +16,27 @@
 <style scoped>
 .serch-box{
     width:80%;
-    height:120px;
+    /* height:120px; */
     margin:50px 10%;
-    padding:5%;
+    padding:2%;
     /* background-color: black; */
     border: solid;
     border-color:rgba(0,0,0,0.6);
     border-radius: 5px;
+    overflow: hidden;
+}
+
+.form-control{
+    margin-top:2%;
 }
 
 .goyotashi-message{
     float:left;
-    padding:17px 13px;
+    padding:7px 3%;
+    margin-top:2%;
 }
 .serch-botton{
-    margin-top:10px;
+    margin-top:2%;
     float:right;
     background-color: white;
     border-color:#ced4da;
