@@ -1,11 +1,9 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        goyoutashi_front
-      </h1>
-      <h2 class="subtitle">
+      
+      <Serchbox />
+      <!-- <h2 class="subtitle">
         show community&#39;s restaurant
       </h2>
       <div class="links">
@@ -23,32 +21,41 @@
         >
           GitHub
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import Header from '~/components/Header.vue'
+import Serchbox from '~/components/Serchbox.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    Header,
+    Serchbox
   }
 }
 </script>
 
-<style>
+<style scoped>
+/* template{
+  margin: 0;
+} */
+
 .container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  /* min-height: 100vh; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* text-align: center; */
 }
 
-.title {
+/* .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
@@ -68,5 +75,5 @@ export default {
 
 .links {
   padding-top: 15px;
-}
+} */
 </style>

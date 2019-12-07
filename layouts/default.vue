@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="body">
+    <Header />
     <nuxt />
   </div>
 </template>
@@ -15,6 +16,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+}
+
+.body{
+  background-color: rgba(248,244,230);
 }
 
 *,
@@ -53,3 +58,11 @@ html {
   background-color: #35495e;
 }
 </style>
+<script>
+import Header from '~/components/Header.vue'
+export default {
+  components: {
+    Header
+  }
+}
+</script>
