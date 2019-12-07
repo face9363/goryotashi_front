@@ -2,6 +2,12 @@ const axiosBase = require('axios');
 
 const axios = {
   axios: null,
+  token: null,
+
+  setToken(token) {
+    this.token = token;
+    this.axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+  },
 
   axiosCreate(nameSpace) {
     this.axios = axiosBase.create({
@@ -15,25 +21,33 @@ const axios = {
     return this.axios;
   },
 
-  defaultGet(url, query={}){
+  defaultGet(url, auth, query={}){
+    if(!this.token && auth){
+      console.log("トークンのセットがありません");
+      return null;
+    }
     this.axios.get(url, {params: query})
       .then(function(res) {
         return res.data
       })
       .catch(function(err) {
         console.log(err);
-        return nil
+        return null
       })
   },
 
-  defaultPost(url, body={}){
+  defaultPost(url, auth, body={}){
+    if(!this.token && auth){
+      console.log("トークンのセットがありません");
+      return null;
+    }
     this.axios.post(url, body)
       .then(function (res) {
         return res.data
       })
       .catch(function(err) {
         console.log(err);
-        return nil
+        return null
       })
   }
 };
