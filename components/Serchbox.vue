@@ -2,9 +2,7 @@
     <div class="serch-box">
         <div class="input-group">
             <input type="text" class="form-control" placeholder="community">
-            <!-- <span class="input-group-btn">
-                <button type="button" class="btn btn-default">検索</button>
-            </span> -->
+            <!-- <SerchCommunity /> -->
         </div>
         <div class="goyotashi-message">
             の御用達を
@@ -12,6 +10,15 @@
         <button type="button" class="btn btn-default serch-botton">検索</button>
     </div>
 </template>
+
+<script>
+import SerchCommunity from '~/components/SerchCommunity.vue'
+export default {
+  components: {
+    SerchCommunity
+  }
+}
+</script>
 
 <style scoped>
 .serch-box{
