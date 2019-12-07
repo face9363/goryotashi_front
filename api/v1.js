@@ -15,7 +15,13 @@ const client = {
   // !Auth!
   getMyCommunity() {
     const url = '/users/me/communities';
-    return axiosBase.defaultGet(url, true);
+    const data = axiosBase.defaultGet(url, true);
+    if(data){
+      const community = new Community(data);
+    }
+    else {
+      return null;
+    }
   },
 
   // コミュニティ検索
