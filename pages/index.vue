@@ -23,6 +23,7 @@
           GitHub
         </a>
       </div> -->
+    <n-link to="text">text</n-link>
   </div>
 </template>
 

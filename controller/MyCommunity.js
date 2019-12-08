@@ -1,4 +1,4 @@
-import client from "../api/v1";
+import client from "../api/mock";
 
 function myCommunity() {
   const community = client

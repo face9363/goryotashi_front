@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "mock": "json-server --p 8080 docs/db.json"
+    "mock": "json-server --watch -p 8080 docs/db.json"
   },
   "dependencies": {
     "node-sass": "^4.13.0",

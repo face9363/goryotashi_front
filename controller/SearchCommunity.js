@@ -1,7 +1,8 @@
-import client from "../api/v1";
+import client from "../api/mock";
 
-function searchCommunity(searchStr) {
-  const communityList = client.searchCommunity(searchStr);
+async function searchCommunity(searchStr) {
+  const communityList = await client.searchCommunity(searchStr);
+  // console.log(communityList);
   return communityList;
 }
 
