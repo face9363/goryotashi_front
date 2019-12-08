@@ -7,6 +7,10 @@ const axios = axiosBase.axiosCreate("v1");
 
 const client = {
 
+  cache: {
+    myCommunity: []
+  },
+
   // 自身の情報
   // !Auth!
   async getMe() {
@@ -19,8 +23,13 @@ const client = {
   // !Auth!
   async getMyCommunity() {
     const url = '/users/me/communities';
+    if(this.cache.myCommunity){
+      return this.cache.myCommunity
+    }
     const array = await axiosBase.defaultGet(url, true);
-    return this._$insertCommunityList(array)
+    const list = this._$insertCommunityList(array);
+    this.cache.myCommunity = list;
+    return list;
   },
 
   // コミュニティ検索
