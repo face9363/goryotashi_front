@@ -1,7 +1,7 @@
 <template>
     <div class="serch-box">
         <div class="input-group">
-            <input type="text" class="form-control" v-model="searchStr" v-bind:style="{borderRadius:bor}" placeholder="community">
+            <input type="text" class="form-control" v-model="searchStr" v-bind:style="{borderRadius:bor}" placeholder="community"/>
             <!-- <div v-if="searchflag">
                 <serchCommunity />
             </div> -->
@@ -12,12 +12,10 @@
             の御用達を
         </div>
         <button type="button" class="btn btn-default serch-botton" v-on:click="search(searchStr), setBorderRadius()">検索</button>
-
     </div>
 </template>
 
 <script>
-    import searchCommunity from '../controller/SearchCommunity.js'
     import serchCommunity from './SerchCommunity.vue'
     import Community from "../model/Community";
 

@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import searchCommunity from '../controller/SearchCommunity.js'
 import Community from '../model/Community.js'
 export default {
 
