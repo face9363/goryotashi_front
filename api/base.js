@@ -11,7 +11,7 @@ const axios = {
 
   axiosCreate(nameSpace) {
     this.axios = axiosBase.create({
-      baseURL: 'http://goyotashi.us' + nameSpace, // バックエンドB のURL:port を指定する
+      baseURL: 'http://localhost:8080' + nameSpace, // バックエンドB のURL:port を指定する
       headers: {
         'Content-Type': 'application/json',
         'X-Requested-With': 'XMLHttpRequest'

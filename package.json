@@ -8,7 +8,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "mock": "json-server --p 8080 docs/db.json"
   },
   "dependencies": {
     "node-sass": "^4.13.0",
@@ -19,5 +20,7 @@
     "firebase": "^7.5.2",
     "nuxt": "^2.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "json-server": "^0.15.1"
+  }
 }

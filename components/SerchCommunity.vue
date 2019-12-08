@@ -3,7 +3,7 @@
         <h2>自分のコミュニティ</h2>
 
     </div>
-    
+
 </template>
 
 <script>
@@ -12,6 +12,7 @@ export default {
 
     methods: {
         search(){
+            console.log();
             searchCommunity();
         }
     }

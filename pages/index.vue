@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      
+
     <Serchbox />
     <MyCommunity />
     <HowToUse />
@@ -30,7 +30,7 @@
 import Logo from '~/components/Logo.vue'
 import Header from '~/components/Header.vue'
 import Serchbox from '~/components/Serchbox.vue'
-import MyCommunity from '~/components/Mycommunity.vue'
+import MyCommunity from '~/components/MyCommunity.vue'
 import HowToUse from '~/components/HowToUse.vue'
 
 export default {
