@@ -13,13 +13,13 @@
 
 <script>
 
-import searchCommunity from '../controller/SearchCommunity.js'
+import searchCommunity from '../controller/community/SearchCommunity.js'
 export default {
 
     methods: {
         search(str){
             console.log(str);
-            
+
             searchCommunity(str);
         }
     },

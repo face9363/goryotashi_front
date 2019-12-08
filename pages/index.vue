@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      
+
     <Serchbox />
     <MyCommunity />
     <HowToUse />
@@ -23,6 +23,7 @@
           GitHub
         </a>
       </div> -->
+    <n-link to="text">text</n-link>
       <n-link to="individual">個別ページへ</n-link>
   </div>
 </template>

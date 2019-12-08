@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import login from '../controller/Login.js'
+import login from '../controller/session/Login.js'
 export default {
     methods: {
         log(){

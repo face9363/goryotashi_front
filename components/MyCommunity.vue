@@ -4,17 +4,17 @@
         <button type="button" class="btn btn-outline-success btn-block login-button" v-on:click="mycom()">
             Log in</button>
 
-        
+
     </div>
-    
+
 </template>
 
 <script>
-import MyCommunity from '../controller/MyCommunity.js'
+import MyCommunity from '../controller/community/MyCommunity.js'
 export default {
     methods: {
         mycom(){
-            console.log("a")
+            console.log("a");
             MyCommunity();
         }
     }
