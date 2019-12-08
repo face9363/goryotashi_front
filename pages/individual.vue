@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <h2>御用達の店</h2>
+    <Chose/>
     <RestaurantCard />
+
     
       
   </div>
@@ -9,10 +11,12 @@
 
 <script>
 import RestaurantCard from '~/components/RestaurantCard.vue'
+import  Chose from '~/components/Chose.vue'
 
 export default {
   components: {
-    RestaurantCard
+    RestaurantCard,
+    Chose
   }
 }
 </script>
