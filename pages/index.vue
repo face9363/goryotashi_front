@@ -24,6 +24,7 @@
         </a>
       </div> -->
     <n-link to="text">text</n-link>
+      <n-link to="individual">個別ページへ</n-link>
   </div>
 </template>
 
