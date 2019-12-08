@@ -30,6 +30,11 @@ h2{
   margin:20px;
 }
 
+h3{
+  color:#f7b977;
+  font-size:23px;
+}
+
 p{
   padding:0 1.5em;
 }

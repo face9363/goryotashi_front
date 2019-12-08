@@ -1,18 +1,20 @@
 <template>
-    <div class="restaurant-card">
-        <div class="card-top">
-            <div class="store-name">
-                ラジュ
+    <n-link to="store">
+        <div class="restaurant-card">
+            <div class="card-top">
+                <div class="store-name">
+                    ラジュ
+                </div>
+                <div class="fav-number">
+                    610いいね
+                </div>
             </div>
-            <div class="fav-number">
-                610いいね
+            <div　class="comment">
+                ナン食べ放題のおいしいインドカレー屋です。
             </div>
+            
         </div>
-        <div　class="comment">
-            ナン食べ放題のおいしいインドカレー屋です。
-        </div>
-        
-    </div>
+    </n-link>
 </template>
 
 <style scoped>
@@ -52,15 +54,4 @@
     padding:0.5em;
 }
 
-.log-in{
-    font-family: 'Century Gothic';
-    float: right;
-    padding: 2px 5px;
-    margin:5px 20px;
-    background-color:rgba(255,255,255,1);
-    border:solid;
-    border-color: rgba(0,0,0,1);
-    border-width:0.5px;
-    border-radius: 8px;
-}
 </style>
