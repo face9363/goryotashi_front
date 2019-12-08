@@ -18,8 +18,11 @@
 
 <script>
   import Logo from '~/components/Logo.vue'
-  import login from "../controller/Login";
-  import searchCommunity from "../controller/SearchCommunity";
+  import login from "../controller/session/Login";
+  import searchCommunity from "../controller/community/SearchCommunity";
+  import myCommunity from "../controller/community/MyCommunity";
+  import myInfoViaFirebase from "../controller/session/MyInfoViaFirebase";
+  import logut from "../controller/session/Logout";
 
   export default {
     components: {
@@ -33,7 +36,7 @@
         login()
       },
       async search(){
-        this.comList = await searchCommunity("京都")
+        this.comList = await myInfoViaFirebase()
       }
     }
   }

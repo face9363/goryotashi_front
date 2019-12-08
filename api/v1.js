@@ -1,37 +1,102 @@
 import axiosBase from "./base";
 import Community from "../model/Community";
+import User from "../model/Uesr";
+import Restaurant from "../model/Restaurant";
+import RestaurantComment from "../model/RestaurantComment";
 const axios = axiosBase.axiosCreate("v1");
 
 const client = {
 
   // 自身の情報
   // !Auth!
-  getMe() {
+  async getMe() {
     const url = '/users/me';
-    return axiosBase.defaultGet(url, true);
+    const data = await axiosBase.defaultGet(url, true);
+    return new User(data)
   },
 
   // 自身のコミュニティ
   // !Auth!
-  getMyCommunity() {
+  async getMyCommunity() {
     const url = '/users/me/communities';
-    const data = axiosBase.defaultGet(url, true);
-    if(data){
-      const community = new Community(data);
-    }
-    else {
-      return null;
-    }
+    const array = await axiosBase.defaultGet(url, true);
+    return this._$insertCommunityList(array)
   },
 
   // コミュニティ検索
-  searchCommunity(q) {
+  async searchCommunity(q) {
     const url = '/communities/search';
     const query = {q: q};
-    const array = axiosBase.defaultGet(url, false, query);
+    const array = await axiosBase.defaultGet(url, false, query);
+    return this._$insertCommunityList(array)
+  },
+
+  // コミュニティ一覧
+  async getCommunityById(communityId) {
+    const url = `/communities/${communityId}`;
+    const query = {id: communityId};
+    const array = await axiosBase.defaultGet(url, false, query)
+    return this._$insertCommunityList(array)
+  },
+
+  // コミュニティのレストラン一覧
+  async getCommunityRestaurant(communityId, order="random") {
+    const url = `/communities/${communityId}/restaurants`;
+    const query = {order: order};
+    const array = await axiosBase.defaultGet(url, false, query);
+    return this._$insertRestaurantList(array)
+  },
+
+  // レストラン検索
+  async searchRestaurant(q) {
+    const url = '/restaurants/search';
+    const query = {q: q};
+    const array = await axiosBase.defaultGet(url, false, query);
+    return this._$insertRestaurantList(array)
+  },
+
+  // コミュニティにレストラン追加
+  // !Auth!
+  async addCommunityRestaurant(communityId, shopId, comment) {
+    const url = `/communities/${communityId}/restaurants`;
+    const body = {
+      id: shopId,
+      comment: comment
+    };
+    const data = await axiosBase.defaultPost(url, true, body);
+  },
+
+  // レストラン取得
+  async getRestaurant(shopId) {
+    const url = `/restaurant/${shopId}`;
+    const array = await axiosBase.defaultGet(url, false)
+    return this._$insertRestaurantList(array)
+  },
+
+  // レストランのコメント一覧取得
+  async getRestaurantComment(communityId, shopId){
+    const url = `/restaurants/${shopId}/comments`;
+    const query = {community: communityId};
+    const array =  await axiosBase.defaultGet(url, false)
+    return this._$insertCommunityList(array)
+  },
+
+  // レストランのコメント追加
+  // !Auth!
+  async addRestaurantComment(communityId, shopId, comment){
+    const url = `/restaurants/${shopId}/comments`;
+    const body = {
+      body: comment,
+      community_id: communityId
+    };
+    return await axiosBase.defaultPost(url, true, body)
+  },
+
+  _$insertCommunityList(array){
     if (array){
+      const items = array.items;
       const communityList = [];
-      for (let data of array){
+      for (let data of items){
         communityList.push(new Community(data))
       }
       return communityList;
@@ -41,60 +106,32 @@ const client = {
     }
   },
 
-  // コミュニティ一覧
-  getCommunityById(communityId) {
-    const url = `/communities/${communityId}`;
-    const query = {id: communityId};
-    return axiosBase.defaultGet(url, false, query)
+  _$insertRestaurantList(array){
+    if (array){
+      const restaurantList = [];
+      const items = array.items;
+      for (let data of items){
+        restaurantList.push(new Restaurant(data))
+      }
+      return restaurantList;
+    }
+    else {
+      return null;
+    }
   },
 
-  // コミュニティのレストラン一覧
-  getCommunityRestaurant(communityId, order="random") {
-    const url = `/communities/${communityId}/restaurants`;
-    const query = {order: order};
-    return axiosBase.defaultGet(url, false, query)
-  },
-
-  // レストラン検索
-  searchRestaurant(q) {
-    const url = '/restaurants/search';
-    const query = {q: q};
-    return axiosBase.defaultGet(url, false, query)
-  },
-
-  // コミュニティにレストラン追加
-  // !Auth!
-  addCommunityRestaurant(communityId, shopId, comment) {
-    const url = `/communities/${communityId}/restaurants`;
-    const body = {
-      id: shopId,
-      comment: comment
-    };
-    return axiosBase.defaultPost(url, true, body);
-  },
-
-  // レストラン取得
-  getRestaurant(shopId) {
-    const url = `/restaurant/${shopId}`;
-    return axiosBase.defaultGet(url, false)
-  },
-
-  // レストランのコメント一覧取得
-  getRestaurantComment(communityId, shopId){
-    const url = `/restaurants/${shopId}/comments`;
-    const query = {community: communityId};
-    return axiosBase.defaultGet(url, false)
-  },
-
-  // レストランのコメント追加
-  // !Auth!
-  addRestaurantComment(communityId, shopId, comment){
-    const url = `/restaurants/${shopId}/comments`;
-    const body = {
-      body: comment,
-      community_id: communityId
-    };
-    return axiosBase.defaultPost(url, true, body)
+  _$insertRestaurantCommentList(array){
+    if (array){
+      const items = array.items;
+      const commentList= [];
+      for (let data of items){
+        commentList.push(new RestaurantComment(data))
+      }
+      return commentList;
+    }
+    else {
+      return null;
+    }
   }
 };
 

@@ -13,9 +13,9 @@ const client = {
 
   // 自身のコミュニティ
   // !Auth!
-  getMyCommunity() {
+  async getMyCommunity() {
     const url = '/users/me/communities';
-    const data = axiosBase.defaultGet(url, true);
+    const data = await axiosBase.defaultGet(url, true);
     if(data){
       const community = new Community(data);
     }
